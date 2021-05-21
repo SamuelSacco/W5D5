@@ -27,7 +27,7 @@ def harrison_ford
   # FROM movies
   # JOIN actors ON movie.id # corresponds to primary id in movie table
 
-  Movie.select(:id, :title).joins(:actors).where(actors: {name: 'Harrison Ford'}).where.not(castings: {ord: 1})
+  Movie.joins(:actors).where(actors: {name: 'Harrison Ford'}).where.not(castings: {ord: 1}).select(:id, :title)
 
 end
 
